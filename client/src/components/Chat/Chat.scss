@@ -1,0 +1,55 @@
+.chat {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+    &_main {
+        width: 80%;
+        height: 100%;
+
+        &_top {
+            width: 100%;
+            height: 10%;
+            display: flex;
+            background: #7f8c8d;
+            background: #4a5459;
+            align-items: center;
+            justify-content: space-between;
+            color: #ecf0f1;
+            &_room {
+                margin-left: 5%;
+                display: flex;
+                &_n {
+                    font-size: 30px;
+                    font-weight: bold;
+                }
+
+                svg {
+                    margin-top: 14px;
+                    width: 20px;
+                    height: 20px;
+                    fill: #27ae60;
+                    margin-right: 10px;
+                }
+            }
+            &_close {
+                margin-right: 5%;
+                display: block;
+                margin-top: -7px;
+                a {
+                    text-decoration: none;
+                    color: #ecf0f1;
+                    font-size: 30px;
+                    margin-top: -30px;
+                    &:hover {
+                        color: #bdc3c7;
+                    }
+                }
+            }
+        }
+        &_bottom {
+            height: 90%;
+            width: 100%;
+        }
+    }
+}

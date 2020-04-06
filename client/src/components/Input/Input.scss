@@ -1,0 +1,61 @@
+.input {
+    // display: flex;
+    width: 100%;
+    height: 7%;
+    // background-color: #333;
+    // position: relative;
+    &_emoji {
+        position: absolute;
+        right: 9%;
+        bottom: 7%;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.2s ease;
+        pointer-events: none;
+        &.alive {
+            pointer-events: visible;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.2s ease;
+        }
+    }
+    &_form {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        input {
+            height: 100%;
+            width: 90%;
+            border: none;
+            background: #ecf0f1;
+            padding: 10px;
+            &::placeholder {
+                color: #333;
+                font-size: 20px;
+                padding: 1%;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        &_smile {
+            position: absolute;
+            right: 11%;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            svg {
+                fill: #4a5459;
+            }
+        }
+        button {
+            width: 10%;
+            height: 100%;
+            background: #4a5459;
+            color: #ecf0f1;
+            border: none;
+            cursor: pointer;
+            line-height: 1;
+        }
+    }
+}

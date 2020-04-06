@@ -1,0 +1,101 @@
+.join {
+    height: 100vh;
+    display: flex;
+    width: 100wv;
+    &_side {
+        height: 100vh;
+        width: 60%;
+        background: #4a5459;
+        -webkit-clip-path: polygon(0 0, 79% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(0 0, 79% 0, 100% 100%, 0% 100%);
+        // color: #bdc3c7;
+        padding: 50px;
+        padding-right: 80px;
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // text-align: center;
+        justify-content: center;
+        &_title {
+            font-size: 50px;
+            font-weight: bolder;
+            color: #ecf0f1;
+        }
+        &_desc {
+            margin-top: 20px;
+            font-size: 25px;
+            color: #bdc3c7;
+            font-weight: 400;
+            text-align: center;
+        }
+        &_steps {
+            margin-top: 40px;
+            margin-bottom: 50px;
+            ol {
+                li {
+                    color: #bdc3c7;
+                    font-size: 20px;
+                }
+            }
+        }
+        &_disclaimer {
+            span {
+                color: #ff6347;
+                font-size: 20px;
+                font-weight: 600;
+            }
+            color: #bdc3c7;
+        }
+    }
+    &_inner {
+        height: 100vh;
+        width: 40%;
+        padding-right: 50px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        &_heading {
+            margin-bottom: 30px;
+            font-size: 50px;
+            color: #4a5459;
+            font-weight: bolder;
+        }
+        input {
+            border: none;
+            border-bottom: 3px solid #4a5459;
+            margin-bottom: 30px;
+            width: 330px;
+            height: 35px;
+            color: #4a5459;
+            transition: border 0.5s ease;
+            &::placeholder {
+                font-size: 20px;
+            }
+            &:focus {
+                outline: none;
+                box-shadow: none;
+                border-bottom: 3px solid #bdc3c7;
+                transition: border 0.5s ease;
+            }
+        }
+        &_btn {
+            font-size: 16px;
+            width: 150px;
+            height: 50px;
+            background: #4a5459;
+            color: #ecf0f1;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            &:hover {
+                border: 3px solid #4a5459;
+                background: transparent;
+                color: #4a5459;
+                transition: all 0.4s;
+                font-weight: bolder;
+            }
+        }
+    }
+}
