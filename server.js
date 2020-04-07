@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 const server = require("http").createServer(app)
-const io = require("socket.io")(server)
+const io = require("socket.io")(server, { wsEngine: 'ws' })
 // const io = require("socket.io")(http, { wsEngine: 'ws' })
 const cors = require("cors")
 const path = require("path")
@@ -16,11 +16,10 @@ app.use(cors())
 
 //Routes
 app.get("/api/chat", (req, res) => {
-    res.send("Server is runing.")
+    res.send("Server is runing...")
 })
 
-
-//Socket
+// Socket
 io.on("connection", (socket) => {
     socket.on("join", ({ name, room }, callback) => {
 
@@ -31,6 +30,9 @@ io.on("connection", (socket) => {
         socket.join(user.room)
 
         socket.emit("message", { user: "Admin", text: `${user.name}, welcome to room ${user.room}` })
+        setTimeout(() => {
+            socket.emit("message", { user: "Admin", text: `You can use emojis. lol... I will be adding more updates to this soon` })
+        }, 1200);
         socket.broadcast.to(user.room).emit("message", { user: "Admin", text: `${user.name} has joined` })
 
         io.to(user.room).emit("roomData", { room: user.room, users: getUserInRoom(user.room) })
