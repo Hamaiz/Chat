@@ -7,7 +7,7 @@ import Messages from "../Messages/Messages"
 import Input from "../Input/Input"
 import Side from "../Side/Side"
 
-//Style
+//Style 
 import "./Chat.scss"
 
 
@@ -31,6 +31,7 @@ const Chat = ({ location }) => {
         setName(name)
         setRoom(room)
 
+
         socket.emit("join", { name, room }, (error) => {
             if (error) alert(error)
         })
@@ -39,6 +40,7 @@ const Chat = ({ location }) => {
             socket.emit("disconnect")
             socket.off()
         }
+
     }, [ENDPOINT, location.search])
 
     useEffect(() => {
@@ -56,7 +58,6 @@ const Chat = ({ location }) => {
         if (message) {
             socket.emit("sendMessage", message, () => {
                 setMessage("")
-                // setEmoji("")
             })
         }
     }
@@ -93,8 +94,6 @@ const Chat = ({ location }) => {
                         message={message}
                         setMessage={setMessage}
                         sendMessage={sendMessage}
-                    // emoji={emoji}
-                    // setEmoji={setEmoji}
                     />
                 </div>
             </div>

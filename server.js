@@ -13,8 +13,9 @@ app.use(cors())
 
 //Routes
 app.get("/api/chat", (req, res) => {
-    res.send("Server is runing")
+    res.send("Server is runing.")
 })
+
 
 //Socket
 io.on("connection", (socket) => {
