@@ -21,12 +21,18 @@ const Chat = ({ location }) => {
     const [message, setMessage] = useState("")
     const [messages, setMessages] = useState([])
     const ENDPOINT = process.env.REACT_APP_ENDPOINT
+    // const ENDPOINT = "http://localhost:5000"
 
 
     useEffect(() => {
         const { name, room } = queryString.parse(location.search)
 
         socket = io(ENDPOINT)
+
+        // socket = io.connect(ENDPOINT, {
+        //     path: "/app/chat",
+
+        // })
 
         setName(name)
         setRoom(room)
