@@ -27,9 +27,6 @@ const Chat = ({ location }) => {
         const { name, room } = queryString.parse(location.search)
 
         socket = io(ENDPOINT)
-        // socket = io(ENDPOINT, {
-        // path: "/api/chat"
-        // })
 
         setName(name)
         setRoom(room)
