@@ -1,7 +1,8 @@
 const express = require("express")
 const app = express()
-const http = require("http").createServer(app)
-const io = require("socket.io")(http, { wsEngine: 'ws' })
+const server = require("http").createServer(app)
+const io = require("socket.io")(server)
+// const io = require("socket.io")(http, { wsEngine: 'ws' })
 const cors = require("cors")
 const path = require("path")
 
@@ -9,6 +10,8 @@ const path = require("path")
 const { addUser, removeUser, getUser, getUserInRoom } = require('./config/users')
 
 //Middlewares
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
 app.use(cors())
 
 //Routes
@@ -20,9 +23,10 @@ app.get("/api/chat", (req, res) => {
 //Socket
 io.on("connection", (socket) => {
     socket.on("join", ({ name, room }, callback) => {
+
         const { error, user } = addUser({ id: socket.id, name, room })
 
-        if (error) return callback(error)
+        if (error) return callback(error);
 
         socket.join(user.room)
 
@@ -35,6 +39,9 @@ io.on("connection", (socket) => {
     })
 
     socket.on("sendMessage", (message, callback) => {
+
+        console.log(message);
+
         const user = getUser(socket.id)
 
         io.to(user.room).emit("message", { user: user.name, text: message })
@@ -45,6 +52,7 @@ io.on("connection", (socket) => {
 
     socket.on("disconnect", () => {
         const user = removeUser(socket.id)
+
 
         if (user) {
             io.to(user.room).emit("message", { user: "Admin", text: `${user.name} has left` })
@@ -60,5 +68,4 @@ if (process.env.NODE_ENV === "production") {
     })
 }
 
-
-http.listen(process.env.PORT || 4000, () => console.log("Server has started..."))
+server.listen(process.env.PORT || 5000, () => console.log("Server has started..."))
