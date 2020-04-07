@@ -3,7 +3,7 @@ import React from 'react'
 //Style
 import "./Side.scss"
 
-const Side = ({ name, users }) => {
+const Side = ({ name, users, openSilde }) => {
     const nameLetter = name.substr(0, 1).toUpperCase()
 
 
