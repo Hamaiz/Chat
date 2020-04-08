@@ -14,6 +14,7 @@
         height: 100%;
         @media #{$mobile_device} {
             width: 100%;
+            height: 100vh;
         }
 
         &_top {
@@ -25,6 +26,9 @@
             align-items: center;
             justify-content: space-between;
             color: #ecf0f1;
+            @media #{$tab} {
+                height: 7vh;
+            }
             &_room {
                 margin-left: 5%;
                 display: flex;
@@ -85,6 +89,9 @@
         &_bottom {
             height: 90%;
             width: 100%;
+            @media #{$tab} {
+                height: 93vh;
+            }
         }
     }
 }

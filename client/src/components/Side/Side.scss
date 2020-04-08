@@ -17,16 +17,6 @@
     overflow-y: scroll;
     @media #{$mobile_device} {
         display: none;
-        &.openBox {
-            z-index: 9;
-            width: 100%;
-            display: block;
-        }
-        &.closeBox {
-            z-index: 9;
-            width: 0;
-            display: none;
-        }
     }
     &::-webkit-scrollbar {
         width: 10px;

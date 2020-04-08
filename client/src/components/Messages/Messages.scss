@@ -1,6 +1,11 @@
+@import "../../styles/responsive";
+
 .messages {
     width: 100%;
     height: 93%;
+    @media #{$tab} {
+        height: 86vh;
+    }
 
     &_container {
         display: flex;
