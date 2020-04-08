@@ -4,8 +4,9 @@
     width: 100%;
     height: 7%;
     @media #{$tab} {
-        height: 7vh;
+        height: 60px;
     }
+
     &_emoji {
         position: absolute;
         right: 9%;
