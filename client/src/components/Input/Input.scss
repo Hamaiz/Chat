@@ -3,7 +3,7 @@
 .input {
     width: 100%;
     height: 7%;
-    @media #{$tab} {
+    @media #{$mobile_device} {
         height: 60px;
     }
 

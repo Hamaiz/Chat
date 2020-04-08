@@ -26,7 +26,7 @@
             align-items: center;
             justify-content: space-between;
             color: #ecf0f1;
-            @media #{$tab} {
+            @media #{$mobile_device} {
                 height: 60px;
             }
             &_room {
@@ -89,7 +89,7 @@
         &_bottom {
             height: 90%;
             width: 100%;
-            @media #{$tab} {
+            @media #{$mobile_device} {
                 height: 93vh;
             }
         }
