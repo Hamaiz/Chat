@@ -22,7 +22,6 @@ const Chat = ({ location }) => {
     const [messages, setMessages] = useState([])
     const ENDPOINT = process.env.REACT_APP_ENDPOINT
 
-
     useEffect(() => {
         const { name, room } = queryString.parse(location.search)
 
@@ -43,14 +42,17 @@ const Chat = ({ location }) => {
 
     }, [ENDPOINT, location.search])
 
+
+
     useEffect(() => {
-        socket.on("message", (message) => {
-            setMessages([...messages, message])
+        socket.on("message", message => {
+            setMessages(messages => [...messages, message]);
+
         })
 
         socket.on("roomData", ({ users }) => setUsers(users))
+    }, [])
 
-    }, [messages])
 
     const sendMessage = e => {
         e.preventDefault()
